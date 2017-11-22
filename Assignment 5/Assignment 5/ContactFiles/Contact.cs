@@ -11,7 +11,7 @@ namespace Assignment5.ContactFiles
 {
     public class Contact
     {
-        private string firstName;
+        private string first_NameTTTTTT;
         private string lastName;
         private Address address;
         private Phone phone;
@@ -23,8 +23,8 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public string FirstName
         {
-            get;
-            set;
+            get { return first_NameTTTTTT; }
+            set { first_NameTTTTTT = value; }
         }
 
         /// <summary>
@@ -60,8 +60,8 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public Phone PhoneData
         {
-            get;
-            set;
+            get { return phone; }
+            set { phone = value; }
         }
 
         /// Property related to the field email
@@ -76,9 +76,8 @@ namespace Assignment5.ContactFiles
         /// <summary>
         /// Default constructor
         /// </summary>
-        Contact()
+        public Contact() : this(string.Empty, string.Empty, new Address(), new Phone(), new Email())
         {
-
         }
 
         /// <summary>
@@ -86,17 +85,34 @@ namespace Assignment5.ContactFiles
         /// </summary>
         /// <param name="firstName">first name</param>
         /// <param name="lastName">last name</param>
-        /// <param name="adress">last name</param>
+        /// <param name="address">last name</param>
         /// <param name="phone">last name</param>
         /// <param name="email">last name</param>
         /// <remarks></remarks>
-        public Email(string firstName, string lastName, Address adress, Phone phone, Email email)
+        public Contact(string firstName, string lastName, Address address, Phone phone, Email email)
         {
-        //TODO
+            this.first_NameTTTTTT = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.phone = phone;
+            this.email = email;
         }
+
+        /// <summary>
+        /// Method with check if input data is valid.
+        /// </summary>
+        /// <returns>true if first or last name, city and country.</returns>
+        public bool Checkdata()
+        {
+            bool validName = !(string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName));
+            bool validCity = !(string.IsNullOrWhiteSpace(AddressData.City));
+            bool validCountry = AddressData.Country != Countries.No_country;
+            return (validName && validCity && validCountry);
+        }
+
         public override string ToString()
         {
-            //string strOut =  TODO
+            string strOut = string.Format("{0,-20} {1, -20}", first_NameTTTTTT, lastName);
             return strOut;
         }
     } // close class

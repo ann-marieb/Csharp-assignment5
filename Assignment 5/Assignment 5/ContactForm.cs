@@ -19,73 +19,108 @@ namespace Assignment5
         private bool closeForm;
         private Contact contact;
 
+        /// <summary>
+        /// Property:
+        /// </summary>
         public Contact ContactData
         {
             get;
             set;
         }
 
-        Contact contactObj; //declare contactObj as type Contact
+        private Contact contactObj; //declare contactObj as type Contact
 
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ContactForm()
         {
             InitializeComponent();
-
-            contactObj = contact; // set contactObj to contact
-
             InitializeGui();
+            contactObj = new Contact(); // set contactObj to contact
             UpdateGui();
-        }
 
-        private void btnContactOK_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void FillCountryComboBox()
-        {
+        // private void FillCountryComboBox()
 
-        }
 
         private void InitializeGui()
         {
-            List<string> countriesList = new List<string>();
+            this.Text = "Contact data";
 
-            = Enum.GetValues(typeof(Countries));
+            cboCountry.DataSource = Address.GetAllCountryStrings();
         }
- 
+
         private void UpdateGui()
         {
 
         }
 
         /// <summary>
-        /// Method
+        /// Method: read input from form
         /// </summary>
-        /// <returns></returns>
-        private Address ReadAddress()
+        private void ReadInput()
         {
+            contactObj.FirstName = txtFirstName.Text;
+            contactObj.LastName = txtLastName.Text;
+            ReadPhones();
+            ReadEmails();
+            ReadAddress();
+        }
 
+
+        /// <summary>
+        /// Button click OK: read input and update GUI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnContactOK_Click(object sender, EventArgs e)
+        {
+            ReadInput();
+            if (contactObj.Checkdata())
+            {
+                string resultString = $"{contactObj.ToString()} {contactObj.EmailData.ToString()}" +
+                    $" {contactObj.PhoneData.ToString()} {contactObj.AddressData.ToString()}";
+                MessageBox.Show(resultString);
+            }
+            else
+            {
+                MessageBox.Show("A contact needs name, city and country.");
+            }
+            UpdateGui();
         }
 
         /// <summary>
-        /// Method
+        /// Method: read phones from form
         /// </summary>
-        /// <returns></returns>
-        private Address ReadPhones()
+        private void ReadPhones()
         {
-
+            contactObj.PhoneData.Home = txtHomePhone.Text;
+            contactObj.PhoneData.Cell = txtCellPhone.Text;
         }
 
         /// <summary>
-        /// Method
+        /// Method: read e-mails from form
         /// </summary>
-        /// <returns></returns>
-        private Address ReadEmails()
+        private void ReadEmails()
         {
-
+            contactObj.EmailData.Business = txtEMailBus.Text;
+            contactObj.EmailData.Personal = txtEMailPersonal.Text;
         }
+
+        /// <summary>
+        /// Method: read address from form
+        /// </summary>
+        private void ReadAddress()
+        {
+            contactObj.AddressData.Street = txtStreet.Text;
+            contactObj.AddressData.City = txtCity.Text;
+            contactObj.AddressData.ZipCode = txtZipCode.Text;
+            contactObj.AddressData.Country = (Countries)cboCountry.SelectedIndex;
+        }
+
 
 
     } // close class

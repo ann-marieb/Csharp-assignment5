@@ -31,7 +31,7 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.gboName = new System.Windows.Forms.GroupBox();
             this.gboEMailAndPhone = new System.Windows.Forms.GroupBox();
             this.txtEMailPersonal = new System.Windows.Forms.TextBox();
@@ -82,16 +82,16 @@
             this.txtFirstName.Size = new System.Drawing.Size(634, 22);
             this.txtFirstName.TabIndex = 2;
             // 
-            // textBox1
+            // txtLastName
             // 
-            this.textBox1.Location = new System.Drawing.Point(175, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(634, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtLastName.Location = new System.Drawing.Point(175, 64);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(634, 22);
+            this.txtLastName.TabIndex = 3;
             // 
             // gboName
             // 
-            this.gboName.Controls.Add(this.textBox1);
+            this.gboName.Controls.Add(this.txtLastName);
             this.gboName.Controls.Add(this.txtFirstName);
             this.gboName.Controls.Add(this.lblLastName);
             this.gboName.Controls.Add(this.lblFirstName);
@@ -303,7 +303,7 @@
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.GroupBox gboName;
         private System.Windows.Forms.GroupBox gboEMailAndPhone;
         private System.Windows.Forms.TextBox txtEMailPersonal;

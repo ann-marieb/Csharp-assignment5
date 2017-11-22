@@ -10,6 +10,7 @@ using System.Text;
 
 	public enum Countries
 	{
+        No_country,
         Afghanistan,
         Algeria,
         Andorra,

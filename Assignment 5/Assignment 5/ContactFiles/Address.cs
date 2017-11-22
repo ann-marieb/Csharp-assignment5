@@ -80,7 +80,6 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public Address() : this (string.Empty, string.Empty, "Malmö")
         {
-
         }
 
         /// <summary> 
@@ -88,7 +87,6 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public Address(string street, string zip, string city) : this(street, zip, city, Countries.Sverige)
         {
-
         }
 
         /// <summary> 
@@ -103,7 +101,7 @@ namespace Assignment5.ContactFiles
         }
 
        /// <summary> 
-       /// Delete underscore char from country
+       /// Delete underscore char from selected country
        /// </summary>
        /// <returns>Country name without underscore char</returns>
        private string GetCountryString()
@@ -111,6 +109,20 @@ namespace Assignment5.ContactFiles
             string strCountry = country.ToString();
             strCountry = strCountry.Replace("_", " ");
             return strCountry;
+        }
+
+        /// <summary>
+        /// Delete underscore chars from all countries
+        /// </summary>
+        /// <returns>returns countries list without underscore chars </returns>
+        public static List<string> GetAllCountryStrings()
+        {
+            List<string> countries = new List<string>();
+            foreach (string country in Enum.GetNames(typeof(Countries)))
+            {
+                countries.Add(country.Replace("_", " "));
+            }
+            return countries;
         }
 
         /// <summary>

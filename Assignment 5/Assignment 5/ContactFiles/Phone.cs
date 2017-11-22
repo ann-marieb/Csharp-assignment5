@@ -46,9 +46,8 @@ namespace Assignment5.ContactFiles
         /// <summary>
         /// Default constructor - calls another constructor in this class
         /// </summary>
-        public Phone()
+        public Phone() : this(string.Empty, string.Empty)
         {
-
         }
 
         /// <summary>
