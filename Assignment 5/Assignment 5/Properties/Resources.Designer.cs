@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assignment_5.Properties
+namespace Assignment5.Properties
 {
 
 
