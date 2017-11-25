@@ -11,7 +11,7 @@ namespace Assignment5.ContactFiles
 {
     public class Contact
     {
-        private string first_NameTTTTTT;
+        private string firstName;
         private string lastName;
         private Address address;
         private Phone phone;
@@ -23,8 +23,8 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public string FirstName
         {
-            get { return first_NameTTTTTT; }
-            set { first_NameTTTTTT = value; }
+            get { return firstName; }
+            set { firstName = value; }
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public string LastName
         {
-            get;
-            set;
+            get { return lastName; }
+            set { lastName = value; }
         }
 
         /// <summary>
@@ -51,8 +51,8 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public Address AddressData
         {
-            get;
-            set;
+            get { return address; }
+            set { address = value; }
         }
 
         /// Property related to the field phone
@@ -69,8 +69,8 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public Email EmailData
         {
-            get;
-            set;
+            get { return email; }
+            set { email = value; }
         }
 
         /// <summary>
@@ -91,11 +91,24 @@ namespace Assignment5.ContactFiles
         /// <remarks></remarks>
         public Contact(string firstName, string lastName, Address address, Phone phone, Email email)
         {
-            this.first_NameTTTTTT = firstName;
+            this.firstName = firstName;
             this.lastName = lastName;
             this.address = address;
             this.phone = phone;
             this.email = email;
+        }
+
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="other"></param>
+        public Contact (Contact other)
+        {
+            this.firstName = other.firstName;
+            this.lastName = other.lastName;
+            this.address = other.address;
+            this.phone = other.phone;
+            this.email = other.email;
         }
 
         /// <summary>
@@ -112,7 +125,7 @@ namespace Assignment5.ContactFiles
 
         public override string ToString()
         {
-            string strOut = string.Format("{0,-20} {1, -20}", first_NameTTTTTT, lastName);
+            string strOut = string.Format("{0,-20} {1, -20}", firstName, lastName);
             return strOut;
         }
     } // close class

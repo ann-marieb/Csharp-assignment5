@@ -33,24 +33,21 @@ namespace Assignment5
         /// <summary>
         /// Default constructor
         /// </summary>
-        public ContactForm()
+        public ContactForm(string title)
         {
             InitializeComponent();
-            InitializeGui();
+            InitializeGui(title);
             contactObj = new Contact(); // set contactObj to contact
             UpdateGui();
-
-
         }
 
         // private void FillCountryComboBox()
 
-
-        private void InitializeGui()
+        private void InitializeGui(string title)
         {
-            this.Text = "Contact data";
-
+            this.Text = title;
             cboCountry.DataSource = Address.GetAllCountryStrings();
+            txtFirstName.Focus();
         }
 
         private void UpdateGui()
@@ -63,13 +60,11 @@ namespace Assignment5
         /// </summary>
         private void ReadInput()
         {
-            contactObj.FirstName = txtFirstName.Text;
-            contactObj.LastName = txtLastName.Text;
+            ReadNames();
             ReadPhones();
             ReadEmails();
             ReadAddress();
         }
-
 
         /// <summary>
         /// Button click OK: read input and update GUI
@@ -89,7 +84,16 @@ namespace Assignment5
             {
                 MessageBox.Show("A contact needs name, city and country.");
             }
-            UpdateGui();
+            //UpdateGui(); Behövs?
+        }
+
+        /// <summary>
+        /// Method: read names from form
+        /// </summary>
+        private void ReadNames()
+        {
+            contactObj.FirstName = txtFirstName.Text;
+            contactObj.LastName = txtLastName.Text;
         }
 
         /// <summary>
@@ -121,7 +125,9 @@ namespace Assignment5
             contactObj.AddressData.Country = (Countries)cboCountry.SelectedIndex;
         }
 
+        private void btnContactCancel_Click(object sender, EventArgs e)
+        {
 
-
+        }
     } // close class
 } // close namespace

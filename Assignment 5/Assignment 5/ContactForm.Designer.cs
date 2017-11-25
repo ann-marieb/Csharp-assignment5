@@ -52,6 +52,7 @@
             this.lblCity = new System.Windows.Forms.Label();
             this.lblStreet = new System.Windows.Forms.Label();
             this.btnContactOK = new System.Windows.Forms.Button();
+            this.btnContactCancel = new System.Windows.Forms.Button();
             this.gboName.SuspendLayout();
             this.gboEMailAndPhone.SuspendLayout();
             this.gboAddress.SuspendLayout();
@@ -277,11 +278,23 @@
             this.btnContactOK.UseVisualStyleBackColor = true;
             this.btnContactOK.Click += new System.EventHandler(this.btnContactOK_Click);
             // 
+            // btnContactCancel
+            // 
+            this.btnContactCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnContactCancel.Location = new System.Drawing.Point(960, 272);
+            this.btnContactCancel.Name = "btnContactCancel";
+            this.btnContactCancel.Size = new System.Drawing.Size(91, 61);
+            this.btnContactCancel.TabIndex = 14;
+            this.btnContactCancel.Text = "Cancel";
+            this.btnContactCancel.UseVisualStyleBackColor = true;
+            this.btnContactCancel.Click += new System.EventHandler(this.btnContactCancel_Click);
+            // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 558);
+            this.Controls.Add(this.btnContactCancel);
             this.Controls.Add(this.btnContactOK);
             this.Controls.Add(this.gboAddress);
             this.Controls.Add(this.gboEMailAndPhone);
@@ -324,6 +337,7 @@
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label lblStreet;
         private System.Windows.Forms.Button btnContactOK;
+        private System.Windows.Forms.Button btnContactCancel;
     }
 }
 

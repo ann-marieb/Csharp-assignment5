@@ -131,8 +131,7 @@ namespace Assignment5.ContactFiles
         /// <returns>Text string containing address</returns>
         public override string ToString()
         {
-            string strOut = string.Format("{0, -25} {1, -8} 2, -10} {3}", street, zipCode, city, GetCountryString());
-            return strOut;
+            return $"{street,-25} {zipCode,-8} {city,-10} {GetCountryString(),-20}";
         }
 
     }// close class

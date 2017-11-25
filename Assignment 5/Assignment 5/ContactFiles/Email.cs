@@ -48,7 +48,6 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public Email() : this(string.Empty)
 		{
-
 		}
 
 		/// <summary>
