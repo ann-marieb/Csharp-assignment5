@@ -12,15 +12,22 @@ namespace Assignment5
 {
     class CustomerManager
     {
-        private List<Customer> customers;
+        private List<Customer> customers; //declare list of customers
+
+        private int nextID = 100;
 
         /// <summary>
-        /// Property returning ...
+        /// Property returning customer list.
+        /// </summary>
+        public List<Customer> Customers => customers;
+
+        /// <summary>
+        /// Property returning number of customers
         /// Only read access
         /// </summary>
-        public int Count
+        public int NumOfCustomers
         {
-            get;
+            get => customers.Count;
         }
 
         /// <summary>
@@ -37,41 +44,62 @@ namespace Assignment5
         /// </summary>
         public CustomerManager()
         {
-            List<Customer> customers = new List<Customer>();
+            customers = new List<Customer>(); //create list of customers
         }
 
         public bool AddCustomer (Contact contactIn)
         {
-
-            customers.Add(contactIn);
+            Customer customerObj = new Customer(contactIn, NewID());
+            customers.Add(customerObj);
             return true;
         }
-        
-        public Customer GetCustomer(int index)
-        {
 
+        private string NewID()
+        {
+            nextID++;
+            return nextID.ToString();
         }
 
-        public string [] GetCustomerInfo(int index)
+        //public Customer GetCustomer(int index)
+        //{
+
+        //}
+
+        //public string [] GetCustomerInfo(int index)
+        //{
+
+        //}
+
+        //public bool ChangeCustomer(Contact contactIn, int index)
+        //{
+
+        //}
+
+        //public bool DeleteCustomer(int index)
+        //{
+
+        //}
+
+        //public void TestValues()
+        //{
+
+        //}
+
+        /// <summary>
+        /// Create array of customer strings to display
+        /// </summary>
+        /// <returns> array in string format</returns>
+        public string[] CustomerArrayToString()
         {
+            string[] result = new string[NumOfCustomers]; //create result array object
 
+            // for loop to list all customers 
+            for (int i = 0; i < NumOfCustomers; i++)
+            {
+                result[i] = customers[i].ToString();
+            }
+            return result;
         }
-
-        public bool ChangeCustomer(Contact contactIn, int index)
-        {
-
-        }
-
-        public bool DeleteCustomer(int index)
-        {
-
-        }
-
-        public void TestValues()
-        {
-
-        }
-
 
     } //close class
 } //close namespace

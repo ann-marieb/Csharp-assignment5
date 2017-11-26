@@ -36,6 +36,7 @@
             // 
             // lstCustomers
             // 
+            this.lstCustomers.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstCustomers.FormattingEnabled = true;
             this.lstCustomers.ItemHeight = 16;
             this.lstCustomers.Location = new System.Drawing.Point(42, 44);

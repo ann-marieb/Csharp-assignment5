@@ -134,5 +134,15 @@ namespace Assignment5.ContactFiles
             return $"{street,-25} {zipCode,-8} {city,-10} {GetCountryString(),-20}";
         }
 
+        /// <summary>
+        /// Method with check if input address data is valid.
+        /// </summary>
+        /// <returns>true if city and country.</returns>
+        public bool IsAddressValid()
+        {
+            bool validCity = !(string.IsNullOrWhiteSpace(city));
+            bool validCountry = country != Countries.No_country;
+            return (validCity && validCountry);
+        }
     }// close class
 }// close namespace

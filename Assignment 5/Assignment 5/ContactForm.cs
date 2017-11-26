@@ -16,16 +16,15 @@ namespace Assignment5
 {
     public partial class ContactForm : Form
     {
-        private bool closeForm;
-        private Contact contact;
+        private bool closeForm; // flag to handle closing of form
+        //private Contact contact;
 
         /// <summary>
         /// Property:
-        /// </summary>
+        /// </summary> 
         public Contact ContactData
         {
-            get;
-            set;
+            get => contactObj;
         }
 
         private Contact contactObj; //declare contactObj as type Contact
@@ -37,7 +36,7 @@ namespace Assignment5
         {
             InitializeComponent();
             InitializeGui(title);
-            contactObj = new Contact(); // set contactObj to contact
+            contactObj = new Contact(); // create contactObj
             UpdateGui();
         }
 
@@ -48,6 +47,7 @@ namespace Assignment5
             this.Text = title;
             cboCountry.DataSource = Address.GetAllCountryStrings();
             txtFirstName.Focus();
+            closeForm = true;
         }
 
         private void UpdateGui()
@@ -76,15 +76,13 @@ namespace Assignment5
             ReadInput();
             if (contactObj.Checkdata())
             {
-                string resultString = $"{contactObj.ToString()} {contactObj.EmailData.ToString()}" +
-                    $" {contactObj.PhoneData.ToString()} {contactObj.AddressData.ToString()}";
+                string resultString = $"{contactObj.ToString()}";
                 MessageBox.Show(resultString);
             }
             else
             {
                 MessageBox.Show("A contact needs name, city and country.");
             }
-            //UpdateGui(); Behövs?
         }
 
         /// <summary>
@@ -128,6 +126,14 @@ namespace Assignment5
         private void btnContactCancel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (closeForm)
+                e.Cancel = false; //close Contact form
+            else
+                e.Cancel = true; // not close Contact form
         }
     } // close class
 } // close namespace

@@ -40,14 +40,15 @@ namespace Assignment5
 
         }
 
-        public Customer(Contact contactIn, int id)
+        public Customer(Contact contactIn, string id)
         {
-
+            contactObj = contactIn;
+            this.id = id;
         }
 
         public override string ToString()
         {
-            string strOut = string.Format("{0,-20} {1, -20}", id, contactObj.ToString());
+            string strOut = $" {id} {contactObj}";
             return strOut;
         }
 

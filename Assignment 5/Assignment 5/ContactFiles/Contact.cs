@@ -118,14 +118,12 @@ namespace Assignment5.ContactFiles
         public bool Checkdata()
         {
             bool validName = !(string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName));
-            bool validCity = !(string.IsNullOrWhiteSpace(AddressData.City));
-            bool validCountry = AddressData.Country != Countries.No_country;
-            return (validName && validCity && validCountry);
+            return (validName && AddressData.IsAddressValid());
         }
 
         public override string ToString()
         {
-            string strOut = string.Format("{0,-20} {1, -20}", firstName, lastName);
+            string strOut = $"{firstName}{lastName}{phone}{email}{address}";
             return strOut;
         }
     } // close class

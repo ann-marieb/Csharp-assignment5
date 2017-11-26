@@ -301,6 +301,7 @@
             this.Controls.Add(this.gboName);
             this.Name = "ContactForm";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ContactForm_FormClosing);
             this.gboName.ResumeLayout(false);
             this.gboName.PerformLayout();
             this.gboEMailAndPhone.ResumeLayout(false);
