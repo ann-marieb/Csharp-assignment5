@@ -21,8 +21,8 @@ namespace Assignment5
         /// </summary>
         public Contact ContactData
         {
-            get;
-            set;
+            get => contactObj;
+            set => contactObj = value;
         }
 
         /// <summary>

@@ -49,7 +49,7 @@ namespace Assignment5
 
         public bool AddCustomer (Contact contactIn)
         {
-            Customer customerObj = new Customer(contactIn, NewID());
+            Customer customerObj = new Customer(contactIn, NewID()); //declare and create customerobject
             customers.Add(customerObj);
             return true;
         }
@@ -60,25 +60,41 @@ namespace Assignment5
             return nextID.ToString();
         }
 
-        //public Customer GetCustomer(int index)
-        //{
+        //Method returning a customer
+        public Customer GetCustomer(int index)
+        {
+            return customers[index];
+        }
 
-        //}
 
-        //public string [] GetCustomerInfo(int index)
-        //{
+        public bool EditCustomer(Customer customerIn, int index)
+        {
+            if (index >= NumOfCustomers || index == -1)
+                return false;
+            customers[index] = customerIn;
+            return true;
+        }
 
-        //}
+        public bool EditCustomer(Contact contactIn, int index)
+        {
+            if (index >= NumOfCustomers || index == -1)
+                return false;
+            customers[index].ContactData = contactIn;
+            return true;
+        }
 
-        //public bool ChangeCustomer(Contact contactIn, int index)
-        //{
-
-        //}
-
-        //public bool DeleteCustomer(int index)
-        //{
-
-        //}
+        /// <summary>
+        /// Deletes customer at specified index from customer list
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>true or false</returns>
+        public bool DeleteCustomer(int index)
+        {
+            if (index >= NumOfCustomers || index == -1)
+                return false;
+            customers.RemoveAt(index);
+            return true;
+        }
 
         //public void TestValues()
         //{
@@ -89,7 +105,7 @@ namespace Assignment5
         /// Create array of customer strings to display
         /// </summary>
         /// <returns> array in string format</returns>
-        public string[] CustomerArrayToString()
+        public string[] GetCustomerInfo()
         {
             string[] result = new string[NumOfCustomers]; //create result array object
 

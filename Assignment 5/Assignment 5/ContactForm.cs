@@ -25,6 +25,7 @@ namespace Assignment5
         public Contact ContactData
         {
             get => contactObj;
+            set => contactObj = value;
         }
 
         private Contact contactObj; //declare contactObj as type Contact
@@ -82,6 +83,7 @@ namespace Assignment5
             else
             {
                 MessageBox.Show("A contact needs name, city and country.");
+                closeForm = false;
             }
         }
 
@@ -125,7 +127,7 @@ namespace Assignment5
 
         private void btnContactCancel_Click(object sender, EventArgs e)
         {
-
+            closeForm = true;
         }
 
         private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)

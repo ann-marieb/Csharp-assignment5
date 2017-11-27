@@ -1,4 +1,6 @@
-﻿namespace Assignment5
+﻿using System;
+
+namespace Assignment5
 {
     partial class MainForm
     {
@@ -30,7 +32,7 @@
         {
             this.lstCustomers = new System.Windows.Forms.ListBox();
             this.btnAddCustomer = new System.Windows.Forms.Button();
-            this.btnChangeCustomer = new System.Windows.Forms.Button();
+            this.btnEditCustomer = new System.Windows.Forms.Button();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,15 +56,15 @@
             this.btnAddCustomer.UseVisualStyleBackColor = true;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
-            // btnChangeCustomer
+            // btnEditCustomer
             // 
-            this.btnChangeCustomer.Location = new System.Drawing.Point(400, 497);
-            this.btnChangeCustomer.Name = "btnChangeCustomer";
-            this.btnChangeCustomer.Size = new System.Drawing.Size(135, 42);
-            this.btnChangeCustomer.TabIndex = 2;
-            this.btnChangeCustomer.Text = "Change";
-            this.btnChangeCustomer.UseVisualStyleBackColor = true;
-            this.btnChangeCustomer.Click += new System.EventHandler(this.btnChangeCustomer_Click);
+            this.btnEditCustomer.Location = new System.Drawing.Point(400, 497);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(135, 42);
+            this.btnEditCustomer.TabIndex = 2;
+            this.btnEditCustomer.Text = "Edit";
+            this.btnEditCustomer.UseVisualStyleBackColor = true;
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             // 
             // btnDeleteCustomer
             // 
@@ -72,6 +74,7 @@
             this.btnDeleteCustomer.TabIndex = 3;
             this.btnDeleteCustomer.Text = "Delete";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // MainForm
             // 
@@ -79,7 +82,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 548);
             this.Controls.Add(this.btnDeleteCustomer);
-            this.Controls.Add(this.btnChangeCustomer);
+            this.Controls.Add(this.btnEditCustomer);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.lstCustomers);
             this.Name = "MainForm";
@@ -88,11 +91,12 @@
 
         }
 
+
         #endregion
 
         private System.Windows.Forms.ListBox lstCustomers;
         private System.Windows.Forms.Button btnAddCustomer;
-        private System.Windows.Forms.Button btnChangeCustomer;
+        private System.Windows.Forms.Button btnEditCustomer;
         private System.Windows.Forms.Button btnDeleteCustomer;
     }
 }
