@@ -19,9 +19,6 @@ namespace Assignment5.ContactFiles
         /// Property related to the field personal
         /// Both read and write access
         /// </summary>
-        /// <value></value>
-        /// <returns></returns>
-        /// <remarks></remarks>
         public string Personal
         {
             //private E-mail
@@ -33,18 +30,14 @@ namespace Assignment5.ContactFiles
         /// Property related to business field
         /// Both read and write access
         /// </summary>
-        /// <value></value>
-        /// <returns></returns>
-        /// <remarks></remarks>
         public string Business
         {
             get { return business; }
             set { business = value; }
         }
-
-
+        
         /// <summary>
-        /// Default constructor - calls another constructor in this class
+        /// Default constructor 
         /// </summary>
         public Email() : this(string.Empty)
 		{
@@ -72,28 +65,6 @@ namespace Assignment5.ContactFiles
 		{
 			business = businessEMail;
 			personal = personalEMail;
-		}
-
-        /// <summary>
-        /// Default values
-        /// </summary>
-        public void DefaultValues()
-        {
-            //TODO ?
-        }
-
-        /// <summary>
-        /// This method prepares a format string that is in sync with the ToString
-        /// method.  It will be used in the MainForm as part of the heading for the ListBox
-        /// before customer information is added in the ListBox.
-        /// </summary>
-        /// <value></value>
-        /// <returns>A formatted string as heading for the values formatted in the ToString
-        /// method below.</returns>
-        /// <remarks></remarks>
-        public string GetToStringItemsHeadings
-		{
-			get { return string.Format("{0,-20} {1, -20}", "Office E-mail", "Private E-mail"); }
 		}
 
 		/// <summary>

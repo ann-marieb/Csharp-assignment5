@@ -43,7 +43,7 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public string FullName
         {
-            get;
+            get => $"{firstName} {lastName}";
         }
 
         /// Property related to the field address
@@ -74,7 +74,7 @@ namespace Assignment5.ContactFiles
         }
 
         /// <summary>
-        /// Default constructor
+        /// default constructor
         /// </summary>
         public Contact() : this(string.Empty, string.Empty, new Address(), new Phone(), new Email())
         {
@@ -123,7 +123,7 @@ namespace Assignment5.ContactFiles
 
         public override string ToString()
         {
-            string strOut = $"{firstName}{lastName}{phone}{email}{address}";
+            string strOut = $"{FullName, -20}{phone}{email}{address}";
             return strOut;
         }
     } // close class

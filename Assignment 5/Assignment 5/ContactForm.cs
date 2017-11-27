@@ -14,6 +14,9 @@ using Assignment5.ContactFiles;
 
 namespace Assignment5
 {
+    /// <summary>
+    /// ContactForm: uers interface, handles contact data
+    /// </summary>
     public partial class ContactForm : Form
     {
         private bool closeForm; // flag to handle closing of form
@@ -25,14 +28,19 @@ namespace Assignment5
         public Contact ContactData
         {
             get => contactObj;
-            set => contactObj = value;
+            set
+            {
+                contactObj = value;
+                UpdateGui();
+            }
         }
 
         private Contact contactObj; //declare contactObj as type Contact
 
         /// <summary>
-        /// Default constructor
+        /// constructor with one parameter
         /// </summary>
+        /// <param name="title"></param>
         public ContactForm(string title)
         {
             InitializeComponent();
@@ -41,8 +49,10 @@ namespace Assignment5
             UpdateGui();
         }
 
-        // private void FillCountryComboBox()
-
+        /// <summary>
+        /// initialize user interface
+        /// </summary>
+        /// <param name="title"></param>
         private void InitializeGui(string title)
         {
             this.Text = title;
@@ -51,9 +61,21 @@ namespace Assignment5
             closeForm = true;
         }
 
+        /// <summary>
+        /// update user interface
+        /// </summary>
         private void UpdateGui()
         {
-
+            txtFirstName.Text = contactObj.FirstName;
+            txtLastName.Text = contactObj.LastName;
+            txtHomePhone.Text = contactObj.PhoneData.Home;
+            txtCellPhone.Text = contactObj.PhoneData.Cell;
+            txtEMailBus.Text = contactObj.EmailData.Business;
+            txtEMailPersonal.Text = contactObj.EmailData.Personal;
+            txtStreet.Text = contactObj.AddressData.Street;
+            txtCity.Text = contactObj.AddressData.City;
+            txtZipCode.Text = contactObj.AddressData.ZipCode;
+            cboCountry.SelectedIndex = (int) contactObj.AddressData.Country ;
         }
 
         /// <summary>
@@ -77,14 +99,31 @@ namespace Assignment5
             ReadInput();
             if (contactObj.Checkdata())
             {
-                string resultString = $"{contactObj.ToString()}";
-                MessageBox.Show(resultString);
+                //string resultString = $"{contactObj.ToString()}";
+                //MessageBox.Show(resultString);
+                closeForm = true;
             }
             else
             {
                 MessageBox.Show("A contact needs name, city and country.");
                 closeForm = false;
             }
+        }
+        /// <summary>
+        /// Button click Cancel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnContactCancel_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show("Discard all changes?",
+                "Think twice!", buttons);
+
+            if (result == DialogResult.OK)
+                closeForm = true;
+            else
+                closeForm = false;
         }
 
         /// <summary>
@@ -125,10 +164,7 @@ namespace Assignment5
             contactObj.AddressData.Country = (Countries)cboCountry.SelectedIndex;
         }
 
-        private void btnContactCancel_Click(object sender, EventArgs e)
-        {
-            closeForm = true;
-        }
+
 
         private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)
         {

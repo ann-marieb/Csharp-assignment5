@@ -35,11 +35,19 @@ namespace Assignment5
             set { id = value; }
         }
 
+        /// <summary>
+        /// default constructor, unused
+        /// </summary>
         public Customer()
         {
 
         }
 
+        /// <summary>
+        /// constructor with two parameters
+        /// </summary>
+        /// <param name="contactIn"></param>
+        /// <param name="id"></param>
         public Customer(Contact contactIn, string id)
         {
             contactObj = contactIn;

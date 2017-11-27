@@ -10,6 +10,9 @@ using Assignment5.ContactFiles;
 
 namespace Assignment5
 {
+    /// <summary>
+    /// Handles customer list
+    /// </summary>
     class CustomerManager
     {
         private List<Customer> customers; //declare list of customers
@@ -30,14 +33,6 @@ namespace Assignment5
             get => customers.Count;
         }
 
-        /// <summary>
-        /// Property returning ID
-        /// Only read access
-        /// </summary>
-        public int GetNewID
-        {
-            get;
-        }
 
         /// <summary>
         /// Default constructor
@@ -47,6 +42,11 @@ namespace Assignment5
             customers = new List<Customer>(); //create list of customers
         }
 
+        /// <summary>
+        /// Method adding customer to customer list
+        /// </summary>
+        /// <param name="contactIn"></param>
+        /// <returns></returns>
         public bool AddCustomer (Contact contactIn)
         {
             Customer customerObj = new Customer(contactIn, NewID()); //declare and create customerobject
@@ -54,30 +54,36 @@ namespace Assignment5
             return true;
         }
 
+
+        /// <summary>
+        ///method returning ID
+        /// </summary>
+        /// <returns>ID</returns>
         private string NewID()
         {
             nextID++;
             return nextID.ToString();
         }
 
-        //Method returning a customer
+        /// <summary>
+        ///Method returning a customer
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>customer</returns>
         public Customer GetCustomer(int index)
         {
             return customers[index];
         }
 
 
-        public bool EditCustomer(Customer customerIn, int index)
-        {
-            if (index >= NumOfCustomers || index == -1)
-                return false;
-            customers[index] = customerIn;
-            return true;
-        }
-
+        /// <summary>
+        /// method editing a customer at specified index in customer list
+        /// </summary>
+        /// <param name="contactIn"></param>
+        /// <param name="index"></param>
         public bool EditCustomer(Contact contactIn, int index)
         {
-            if (index >= NumOfCustomers || index == -1)
+            if (!CheckIndex(index))
                 return false;
             customers[index].ContactData = contactIn;
             return true;
@@ -90,16 +96,23 @@ namespace Assignment5
         /// <returns>true or false</returns>
         public bool DeleteCustomer(int index)
         {
-            if (index >= NumOfCustomers || index == -1)
+            if (!CheckIndex(index))
                 return false;
-            customers.RemoveAt(index);
-            return true;
+                customers.RemoveAt(index);
+                return true;
         }
 
-        //public void TestValues()
-        //{
-
-        //}
+        /// <summary>
+        /// checks if index is valid
+        /// </summary>
+        /// <param name="index"></param>
+        public bool CheckIndex(int index)
+        {
+            if (index > -1 && index <NumOfCustomers)
+                return true;
+            else
+                return false;
+        }
 
         /// <summary>
         /// Create array of customer strings to display

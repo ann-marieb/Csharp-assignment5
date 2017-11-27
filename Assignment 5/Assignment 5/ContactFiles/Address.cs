@@ -78,19 +78,19 @@ namespace Assignment5.ContactFiles
 
         /// <summary> Default constructor
         /// </summary>
-        public Address() : this (string.Empty, string.Empty, "Malmö")
+        public Address() : this (string.Empty, string.Empty, string.Empty)
         {
         }
 
         /// <summary> 
-        /// Constructor
+        /// Constructor with three parameters
         /// </summary>
-        public Address(string street, string zip, string city) : this(street, zip, city, Countries.Sverige)
+        public Address(string street, string zip, string city) : this(street, zip, city, Countries.No_country)
         {
         }
 
         /// <summary> 
-        /// Constructor
+        /// Constructor with four parameters
         /// </summary>
         public Address(string street, string zip, string city, Countries country)
         {
@@ -144,5 +144,6 @@ namespace Assignment5.ContactFiles
             bool validCountry = country != Countries.No_country;
             return (validCity && validCountry);
         }
+
     }// close class
 }// close namespace
