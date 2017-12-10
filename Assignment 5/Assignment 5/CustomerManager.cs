@@ -22,7 +22,7 @@ namespace Assignment5
         /// <summary>
         /// Property returning customer list.
         /// </summary>
-        public List<Customer> Customers => customers;
+        ///public List<Customer> Customers => customers;
 
         /// <summary>
         /// Property returning number of customers
