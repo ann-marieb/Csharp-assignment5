@@ -164,12 +164,24 @@ namespace Assignment5
             contactObj.AddressData.Country = (Countries)cboCountry.SelectedIndex;
         }
 
-
-
         private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (closeForm)
-                e.Cancel = false; //close Contact form
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                    DialogResult result = MessageBox.Show("Discard all changes?",
+                        "Think twice!", buttons);
+
+                    if (result == DialogResult.OK)
+                        e.Cancel = false;
+                    else
+                        e.Cancel = true;
+                }
+                else
+                    e.Cancel = false; //close Contact form
+            }
             else
                 e.Cancel = true; // not close Contact form
         }

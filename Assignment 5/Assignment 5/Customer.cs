@@ -44,6 +44,16 @@ namespace Assignment5
         }
 
         /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="other"></param>
+        public Customer(Customer other)
+        {
+            this.id = other.id;
+            contactObj = new Contact(other.contactObj);
+        }
+
+        /// <summary>
         /// constructor with two parameters
         /// </summary>
         /// <param name="contactIn"></param>
@@ -53,6 +63,7 @@ namespace Assignment5
             contactObj = contactIn;
             this.id = id;
         }
+
 
         public override string ToString()
         {

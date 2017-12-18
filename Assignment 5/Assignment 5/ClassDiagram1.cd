@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assignment5.MainForm">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAABAKAADgAABAAABSAAAAKAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment5.CustomerManager">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GABIAAABAAAAAgAABBAAAAAAACAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>CustomerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment5.Customer">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAgAAEAAAAAAEAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment5.ContactForm">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACABIGBBGqAQAECMDCpAAkGIgBAggAoABACAAAAEIQ=</HashCode>
+      <FileName>ContactForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

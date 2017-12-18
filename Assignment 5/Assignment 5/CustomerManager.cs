@@ -72,7 +72,7 @@ namespace Assignment5
         /// <returns>customer</returns>
         public Customer GetCustomer(int index)
         {
-            return customers[index];
+            return new Customer(customers [index]);
         }
 
 
